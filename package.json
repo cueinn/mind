@@ -1,0 +1,66 @@
+{
+  "name": "mind-editor",
+  "version": "1.0.0",
+  "description": "Focused markdown editor for first-draft writing",
+  "main": "main.js",
+  "scripts": {
+    "build": "node build.js",
+    "start": "npm run build && electron .",
+    "dev": "electron .",
+    "dist:win": "npm run build && electron-builder --win --x64",
+    "dist:mac": "npm run build && electron-builder --mac --universal",
+    "dist": "npm run build && electron-builder"
+  },
+  "dependencies": {
+    "@codemirror/commands": "^6.7.1",
+    "@codemirror/lang-markdown": "^6.3.1",
+    "@codemirror/language": "^6.10.6",
+    "@codemirror/language-data": "^6.5.1",
+    "@codemirror/state": "^6.5.0",
+    "@codemirror/view": "^6.36.3",
+    "@lezer/highlight": "^1.2.1",
+    "@lezer/markdown": "^1.4.1"
+  },
+  "devDependencies": {
+    "electron": "^33.0.0",
+    "electron-builder": "^25.0.0",
+    "esbuild": "^0.24.0"
+  },
+  "build": {
+    "appId": "com.mind.editor",
+    "productName": "Mind",
+    "copyright": "Copyright © 2026",
+    "directories": {
+      "output": "dist",
+      "buildResources": "assets"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "renderer/index.html",
+      "renderer/bundle.js",
+      "renderer/styles.css"
+    ],
+    "mac": {
+      "category": "public.app-category.productivity",
+      "target": [
+        { "target": "dmg", "arch": ["universal"] },
+        { "target": "zip", "arch": ["universal"] }
+      ]
+    },
+    "win": {
+      "target": [
+        { "target": "nsis", "arch": ["x64"] }
+      ]
+    },
+    "nsis": {
+      "oneClick": true,
+      "perMachine": false,
+      "deleteAppDataOnUninstall": false
+    },
+    "publish": {
+      "provider": "github",
+      "releaseType": "release"
+    }
+  }
+}

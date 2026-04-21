@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'self'">
+  <title>Mind</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400;1,8..60,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="app">
+    <aside id="sidebar" class="sidebar-visible">
+      <div id="sidebar-header">
+        <button id="btn-open-folder" class="icon-btn" title="Abrir pasta (Ctrl+O)">
+          <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
+            <path d="M1 3.5A1.5 1.5 0 012.5 2h3.586a1 1 0 01.707.293L8.207 4H12.5A1.5 1.5 0 0114 5.5v6A1.5 1.5 0 0112.5 13h-10A1.5 1.5 0 011 11.5v-8z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <span id="folder-name" class="folder-label">Sem pasta aberta</span>
+        <button id="btn-new-file" class="icon-btn" title="Novo arquivo (Ctrl+N)">
+          <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
+            <path d="M7.5 2v11M2 7.5h11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+      <div id="file-tree"></div>
+      <div id="sidebar-empty" class="sidebar-empty">
+        <p>Abra uma pasta para ver seus arquivos</p>
+        <button id="btn-open-folder-2" class="text-btn">Abrir pasta…</button>
+      </div>
+    </aside>
+
+    <main id="main">
+      <div id="editor-scroll">
+        <div id="editor-wrapper">
+          <div id="editor"></div>
+        </div>
+      </div>
+      <div id="statusbar">
+        <span id="status-file"></span>
+        <span id="status-words">0 palavras</span>
+        <span id="status-save"></span>
+      </div>
+    </main>
+  </div>
+
+  <script src="bundle.js"></script>
+</body>
+</html>
